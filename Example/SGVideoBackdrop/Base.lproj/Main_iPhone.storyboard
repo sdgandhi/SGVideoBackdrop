@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1Ik-Av-NKf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--SGVideoBackdrop Example-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="SGViewController" sceneMemberID="viewController">
@@ -15,11 +16,75 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbv-Sv-mu5">
+                                <rect key="frame" x="131" y="77" width="59" height="30"/>
+                                <state key="normal" title="A button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="46B-X9-FFH">
+                                <rect key="frame" x="99" y="125" width="123" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uhl-Gb-kwh">
+                                <rect key="frame" x="60" y="181" width="201" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="201" id="aYd-8Q-kQ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r9P-Oy-Ki6">
+                                <rect key="frame" x="101" y="235" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="fCI-7d-XED"/>
+                                </constraints>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4s-ro-2j5">
+                                <rect key="frame" x="136" y="295" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zbv-Sv-mu5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="13" id="0r6-gF-1U9"/>
+                            <constraint firstItem="Uhl-Gb-kwh" firstAttribute="centerX" secondItem="46B-X9-FFH" secondAttribute="centerX" id="DHk-9l-RVC"/>
+                            <constraint firstAttribute="centerX" secondItem="zbv-Sv-mu5" secondAttribute="centerX" id="EsS-4Z-mGW"/>
+                            <constraint firstItem="r9P-Oy-Ki6" firstAttribute="centerX" secondItem="Uhl-Gb-kwh" secondAttribute="centerX" constant="-0.5" id="Pka-An-pQL"/>
+                            <constraint firstItem="Uhl-Gb-kwh" firstAttribute="top" secondItem="46B-X9-FFH" secondAttribute="bottom" constant="28" id="YAP-4e-Eb2"/>
+                            <constraint firstItem="M4s-ro-2j5" firstAttribute="centerX" secondItem="r9P-Oy-Ki6" secondAttribute="centerX" constant="0.5" id="ceS-xK-odM"/>
+                            <constraint firstItem="M4s-ro-2j5" firstAttribute="top" secondItem="r9P-Oy-Ki6" secondAttribute="bottom" constant="30" id="gEh-g2-hZG"/>
+                            <constraint firstItem="46B-X9-FFH" firstAttribute="top" secondItem="zbv-Sv-mu5" secondAttribute="bottom" constant="18" id="iE4-MD-zFm"/>
+                            <constraint firstItem="r9P-Oy-Ki6" firstAttribute="top" secondItem="Uhl-Gb-kwh" secondAttribute="bottom" constant="24" id="lYr-nn-vga"/>
+                            <constraint firstItem="zbv-Sv-mu5" firstAttribute="centerX" secondItem="46B-X9-FFH" secondAttribute="centerX" id="ngb-Jy-NBH"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="SGVideoBackdrop Example" id="ad7-hX-z3z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="779" y="415"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KHJ-hr-n0d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ik-Av-NKf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="c1b-VL-qMS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="AbG-tV-mah"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UwC-kQ-6R6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="1044"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -27,4 +92,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

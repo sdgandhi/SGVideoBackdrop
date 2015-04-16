@@ -10,29 +10,25 @@
 Pod::Spec.new do |s|
   s.name             = "SGVideoBackdrop"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SGVideoBackdrop."
+  s.summary          = "A video backdrop for your view controller + UIVisualEffectView"
   s.description      = <<-DESC
-                       An optional longer description of SGVideoBackdrop
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Set any local or remote video (that AVPlayer accepts) as a blurred out backdrop to your view controller.
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SGVideoBackdrop"
+  s.homepage         = "https://github.com/sdgandhi/SGVideoBackdrop"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Sidhant Gandhi" => "sidhantg@syntertainment.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SGVideoBackdrop.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Sidhant Gandhi" => "sidhant.gandhi@gmail.com" }
+  s.source           = { :git => "https://github.com/sdgandhi/SGVideoBackdrop.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/sidhantgandhi'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'SGVideoBackdrop' => ['Pod/Assets/*.png']
-  }
+#  s.resource_bundles = {
+#    'SGVideoBackdrop' => ['Pod/Assets/*.png']
+#  }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'AVFoundation'
 end

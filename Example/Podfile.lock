@@ -1,0 +1,14 @@
+PODS:
+  - SGVideoBackdrop (0.1.0)
+
+DEPENDENCIES:
+  - SGVideoBackdrop (from `../`)
+
+EXTERNAL SOURCES:
+  SGVideoBackdrop:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SGVideoBackdrop: fbf9d58a1e73d15964cb737c5a850db6ceeae251
+
+COCOAPODS: 0.36.4

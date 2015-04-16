@@ -18,6 +18,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self sg_setBackdropVideo:[NSURL URLWithString:@"https://ia801408.us.archive.org/27/items/sample_video_clip_Shark_swim_240/Shark_clip4_240_1_512kb.mp4"]];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
