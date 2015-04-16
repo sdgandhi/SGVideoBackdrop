@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'SGVideoBackdrop', :exclusive => true do
+  pod "SGVideoBackdrop", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "SGVideoBackdrop", :path => "../"
+
+  
+end
