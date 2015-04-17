@@ -1,19 +1,30 @@
 PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
+  - SDWebImage-GIFCache (0.1.0):
+    - SDWebImage (~> 3.0)
   - SDWebImage/Core (3.7.2)
   - SGVideoBackdrop (0.1.0):
     - SDWebImage (~> 3.0)
 
 DEPENDENCIES:
+  - SDWebImage-GIFCache (from `https://github.com/sdgandhi/SDWebImage-GIFCache.git`)
   - SGVideoBackdrop (from `../`)
 
 EXTERNAL SOURCES:
+  SDWebImage-GIFCache:
+    :git: https://github.com/sdgandhi/SDWebImage-GIFCache.git
   SGVideoBackdrop:
     :path: ../
 
+CHECKOUT OPTIONS:
+  SDWebImage-GIFCache:
+    :commit: 2bc41809dab6ec6b20655ce18ab531614bbce51b
+    :git: https://github.com/sdgandhi/SDWebImage-GIFCache.git
+
 SPEC CHECKSUMS:
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SDWebImage-GIFCache: 93f529f5703d6b4e6e0d6826ffe487d24494dc87
   SGVideoBackdrop: e662b247bed53cfc94ea789e50a661607b5f0694
 
 COCOAPODS: 0.36.4

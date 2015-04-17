@@ -1,0 +1,32 @@
+{
+  "name": "SDWebImage-GIFCache",
+  "version": "0.1.0",
+  "summary": "SDWebImage with easy GIF caching",
+  "description": "",
+  "homepage": "https://github.com/sdgandhi/SDWebImage-GIFCache",
+  "license": "MIT",
+  "authors": {
+    "Sidhant Gandhi": "sidhant.gandhi@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/sdgandhi/SDWebImage-GIFCache.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/sidhantgandhi",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "SDWebImage-GIFCache": [
+      "Pod/Assets/*.png"
+    ]
+  },
+  "public_header_files": "Pod/Classes/**/*.h",
+  "dependencies": {
+    "SDWebImage": [
+      "~> 3.0"
+    ]
+  }
+}

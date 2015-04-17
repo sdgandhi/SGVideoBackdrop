@@ -2,6 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'SGVideoBackdrop', :exclusive => true do
   pod "SGVideoBackdrop", :path => "../"
+  pod "SDWebImage-GIFCache", :git => "https://github.com/sdgandhi/SDWebImage-GIFCache.git"
 end
 
 target 'Tests', :exclusive => true do

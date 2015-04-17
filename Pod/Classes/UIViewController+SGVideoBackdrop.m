@@ -8,8 +8,8 @@
 
 #import "UIViewController+SGVideoBackdrop.h"
 #import <objc/runtime.h>
-#import <SDWebimage/UIImage+GIF.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+GIFCache.h"
 
 static const NSInteger kSGBackdropVideoViewTag  = 309939562;
 static const NSInteger kSGBackdropImageViewTag  = 309939563;
@@ -102,27 +102,7 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939564;
         }
         
         if (gif) {
-
-            // If we've cached it
-            if ([[SDImageCache sharedImageCache] diskImageExistsWithKey:url.absoluteString]) {
-                UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:url.absoluteString];
-                [imageView setImage:image];
-            }
-            
-            // If we haven't cached it
-            else {
-                [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                    // TODO: Progress
-                } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                    
-                    if (!error && data) {
-                        image = [UIImage sd_animatedGIFWithData:data];
-                        [[SDImageCache sharedImageCache] storeImage:image recalculateFromImage:NO imageData:data forKey:url.absoluteString toDisk:YES];
-                        [imageView setImage:image];
-                    }
-                }];
-            }
-            
+            [imageView sg_setImageWithGIFUrl:url];
         } else {
             [imageView sd_setImageWithURL:url];
         }
