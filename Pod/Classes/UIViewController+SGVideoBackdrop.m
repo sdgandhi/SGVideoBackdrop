@@ -49,8 +49,8 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939564;
         
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:kSGBackdropImageViewTag];
         UIView *videoView = [self.view viewWithTag:kSGBackdropVideoViewTag];
-        imageView.hidden = YES;
-        videoView.hidden = NO;
+        imageView.alpha = 0;;
+        videoView.alpha = 1;
         if (!videoView) {
             videoView = [[UIView alloc] initWithFrame:self.view.bounds];
             videoView.tag = kSGBackdropVideoViewTag;
@@ -91,8 +91,8 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939564;
         
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:kSGBackdropImageViewTag];
         UIView *videoView = [self.view viewWithTag:kSGBackdropVideoViewTag];
-        imageView.hidden = NO;
-        videoView.hidden = YES;
+        imageView.alpha = 1;
+        videoView.alpha = 0;
         if (!imageView) {
             imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
             imageView.clipsToBounds = YES;

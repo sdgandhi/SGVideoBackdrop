@@ -5,6 +5,7 @@
 //  Created by Sidhant Gandhi on 04/16/2015.
 //  Copyright (c) 2014 Sidhant Gandhi. All rights reserved.
 //
+//  GIF Images from: http://www.wired.com/2013/09/the-rise-of-subtle-tasteful-and-commissioned-animated-gif-illustrations/
 
 #import "SGViewController.h"
 
@@ -18,9 +19,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    //[self sg_setBackdropVideo:[NSURL URLWithString:@"https://ia801408.us.archive.org/27/items/sample_video_clip_Shark_swim_240/Shark_clip4_240_1_512kb.mp4"]];
+
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SGVideoBackdrop" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    NSURL *videoUrl = [bundle URLForResource:@"xx" withExtension:@"mp4"];
+
     [self sg_setBackdropImage:[NSURL URLWithString:@"http://www.wired.com/wp-content/uploads/images_blogs/design/2013/09/davey1_1.gif"] isGif:YES];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self sg_setBackdropVideo:videoUrl];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self sg_setBackdropImage:[NSURL URLWithString:@"http://www.wired.com/wp-content/uploads/images_blogs/design/2013/09/davey1_1.gif"] isGif:YES];
+
+    });
 }
 
 - (BOOL)prefersStatusBarHidden
