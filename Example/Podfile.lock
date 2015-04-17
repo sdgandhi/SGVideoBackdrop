@@ -1,5 +1,9 @@
 PODS:
-  - SGVideoBackdrop (0.1.0)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+  - SGVideoBackdrop (0.1.0):
+    - SDWebImage (~> 3.0)
 
 DEPENDENCIES:
   - SGVideoBackdrop (from `../`)
@@ -9,6 +13,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  SGVideoBackdrop: fbf9d58a1e73d15964cb737c5a850db6ceeae251
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SGVideoBackdrop: e662b247bed53cfc94ea789e50a661607b5f0694
 
 COCOAPODS: 0.36.4
