@@ -8,8 +8,6 @@
 
 #import "UIViewController+SGVideoBackdrop.h"
 #import <objc/runtime.h>
-#import <SDWebImage/SDWebImageManager.h>
-#import <SDWebImage/SDWebImageDownloader.h>
 #import <SDWebimage/UIImage+GIF.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
