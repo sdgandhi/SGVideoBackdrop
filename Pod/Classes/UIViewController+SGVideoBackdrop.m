@@ -9,11 +9,12 @@
 #import "UIViewController+SGVideoBackdrop.h"
 #import <objc/runtime.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIImageView+GIFCache.h"
+#import "FLAnimatedImage.h"
 
 static const NSInteger kSGBackdropVideoViewTag  = 309939562;
 static const NSInteger kSGBackdropImageViewTag  = 309939563;
-static const NSInteger kSGBackdropBlurViewTag   = 309939564;
+static const NSInteger kSGBackdropGIFViewTag    = 309939564;
+static const NSInteger kSGBackdropBlurViewTag   = 309939565;
 
 @implementation UIViewController (SGVideoBackdrop)
 @dynamic sg_videoPlayer;
@@ -49,8 +50,10 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939564;
         
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:kSGBackdropImageViewTag];
         UIView *videoView = [self.view viewWithTag:kSGBackdropVideoViewTag];
-        imageView.alpha = 0;;
+        FLAnimatedImageView *gifView = (FLAnimatedImageView *)[self.view viewWithTag:kSGBackdropGIFViewTag];
+        imageView.alpha = 0;
         videoView.alpha = 1;
+        gifView.alpha = 0;
         if (!videoView) {
             videoView = [[UIView alloc] initWithFrame:self.view.bounds];
             videoView.tag = kSGBackdropVideoViewTag;
@@ -83,7 +86,7 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939564;
     });
 }
 
-- (void)sg_setBackdropImage:(NSURL *)url isGif:(BOOL)gif {
+- (void)sg_setBackdropImage:(NSURL *)url {
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
@@ -91,8 +94,10 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939564;
         
         UIImageView *imageView = (UIImageView *)[self.view viewWithTag:kSGBackdropImageViewTag];
         UIView *videoView = [self.view viewWithTag:kSGBackdropVideoViewTag];
+        FLAnimatedImageView *gifView = (FLAnimatedImageView *)[self.view viewWithTag:kSGBackdropGIFViewTag];
         imageView.alpha = 1;
         videoView.alpha = 0;
+        gifView.alpha = 0;
         if (!imageView) {
             imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
             imageView.clipsToBounds = YES;
@@ -100,14 +105,44 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939564;
             imageView.tag = kSGBackdropImageViewTag;
             [self.view insertSubview:imageView atIndex:0];
         }
-        
-        if (gif) {
-            [imageView sg_setImageWithGIFUrl:url];
-        } else {
-            [imageView sd_setImageWithURL:url];
-        }
+
+        [imageView sd_setImageWithURL:url];
         
         [self sg_setupBlurForView:imageView];
+    });
+}
+
+- (void)sg_setBackdropGIF:(NSURL *)url {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.view.backgroundColor = [UIColor blackColor];
+        
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:kSGBackdropImageViewTag];
+        UIView *videoView = [self.view viewWithTag:kSGBackdropVideoViewTag];
+        FLAnimatedImageView *gifView = (FLAnimatedImageView *)[self.view viewWithTag:kSGBackdropGIFViewTag];
+        imageView.alpha = 0;
+        videoView.alpha = 0;
+        gifView.alpha = 1;
+        if (!gifView) {
+            gifView = [[FLAnimatedImageView alloc] initWithFrame:self.view.bounds];
+            gifView.clipsToBounds = YES;
+            gifView.contentMode = UIViewContentModeScaleAspectFill;
+            gifView.tag = kSGBackdropGIFViewTag;
+            [self.view insertSubview:gifView atIndex:0];
+        }
+        
+        dispatch_async(dispatch_queue_create("SGGIFQueue", NULL), ^{
+            NSError *error;
+            NSData *imageData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:15] returningResponse:nil error:&error];
+            if (!error && imageData) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:imageData];
+                    gifView.animatedImage = image;
+                });
+            }
+        });
+        
+        [self sg_setupBlurForView:gifView];
     });
 }
 

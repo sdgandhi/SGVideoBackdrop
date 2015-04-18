@@ -24,6 +24,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		CEF29FA5AA7E281247886DF2 /* libPods-SGVideoBackdrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFC1A5C93AB2EE577F11DDF /* libPods-SGVideoBackdrop.a */; };
+		DC1291611AE223FB005EF9FD /* xx.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DC1291601AE223FB005EF9FD /* xx.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		9F84591F69F4F1029F901283 /* Pods-SGVideoBackdrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGVideoBackdrop.release.xcconfig"; path = "Pods/Target Support Files/Pods-SGVideoBackdrop/Pods-SGVideoBackdrop.release.xcconfig"; sourceTree = "<group>"; };
 		AFFC1A5C93AB2EE577F11DDF /* libPods-SGVideoBackdrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SGVideoBackdrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFC0FB54C5412C9CCAC5F46C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DC1291601AE223FB005EF9FD /* xx.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xx.mp4; sourceTree = "<group>"; };
 		F5B82A03784417A4A3B3D639 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 		6003F593195388D20070C39A /* SGVideoBackdrop */ = {
 			isa = PBXGroup;
 			children = (
+				DC1291601AE223FB005EF9FD /* xx.mp4 */,
 				6003F59C195388D20070C39A /* SGAppDelegate.h */,
 				6003F59D195388D20070C39A /* SGAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
@@ -276,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC1291611AE223FB005EF9FD /* xx.mp4 in Resources */,
 				6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,

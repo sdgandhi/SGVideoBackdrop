@@ -14,6 +14,7 @@
 @property (nonatomic, strong) AVPlayer *sg_videoPlayer;
 
 - (void)sg_setBackdropVideo:(NSURL *)url;
-- (void)sg_setBackdropImage:(NSURL *)url isGif:(BOOL)gif;
+- (void)sg_setBackdropImage:(NSURL *)url;
+- (void)sg_setBackdropGIF:(NSURL *)url;
 
 @end

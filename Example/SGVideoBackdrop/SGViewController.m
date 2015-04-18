@@ -19,19 +19,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSURL *videoUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"xx" ofType:@"mp4"]];
 
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SGVideoBackdrop" ofType:@"bundle"];
-    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
-    NSURL *videoUrl = [bundle URLForResource:@"xx" withExtension:@"mp4"];
-
-    [self sg_setBackdropImage:[NSURL URLWithString:@"http://www.wired.com/wp-content/uploads/images_blogs/design/2013/09/davey1_1.gif"] isGif:YES];
+    [self sg_setBackdropGIF:[NSURL URLWithString:@"http://www.wired.com/wp-content/uploads/images_blogs/design/2013/09/davey1_1.gif"]];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self sg_setBackdropVideo:videoUrl];
     });
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self sg_setBackdropImage:[NSURL URLWithString:@"http://www.wired.com/wp-content/uploads/images_blogs/design/2013/09/davey1_1.gif"] isGif:YES];
+        [self sg_setBackdropGIF:[NSURL URLWithString:@"http://www.wired.com/wp-content/uploads/images_blogs/design/2013/09/davey1_1.gif"]];
 
     });
 }
