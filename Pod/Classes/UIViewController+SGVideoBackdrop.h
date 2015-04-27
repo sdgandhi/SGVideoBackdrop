@@ -13,8 +13,8 @@
 
 @property (nonatomic, strong) AVPlayer *sg_videoPlayer;
 
-- (void)sg_setBackdropVideo:(NSURL *)url;
-- (void)sg_setBackdropImage:(NSURL *)url;
-- (void)sg_setBackdropGIF:(NSURL *)url;
+- (void)sg_setBackdropVideo:(NSURL *)url blurStyle:(UIBlurEffectStyle)style;
+- (void)sg_setBackdropImage:(NSURL *)url blurStyle:(UIBlurEffectStyle)style;
+- (void)sg_setBackdropGIF:(NSURL *)url blurStyle:(UIBlurEffectStyle)style;
 
 @end

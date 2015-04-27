@@ -32,8 +32,8 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939565;
     objc_setAssociatedObject(self, @selector(sg_videoPlayer), player, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)sg_setBackdropVideo:(NSURL *)url {
-    
+- (void)sg_setBackdropVideo:(NSURL *)url blurStyle:(UIBlurEffectStyle)style {
+
     dispatch_async(dispatch_get_main_queue(), ^{
         
         self.view.backgroundColor = [UIColor blackColor];
@@ -65,7 +65,7 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939565;
             [self.view insertSubview:videoView atIndex:0];
         }
 
-        [self sg_setupBlurForView:videoView];
+        [self sg_setupBlurForView:videoView withStyle:style];
         
         AVAsset *asset = [AVAsset assetWithURL:url];
         AVPlayerItem *item =[[AVPlayerItem alloc]initWithAsset:asset];
@@ -86,8 +86,8 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939565;
     });
 }
 
-- (void)sg_setBackdropImage:(NSURL *)url {
-    
+- (void)sg_setBackdropImage:(NSURL *)url blurStyle:(UIBlurEffectStyle)style {
+
     dispatch_async(dispatch_get_main_queue(), ^{
         
         self.view.backgroundColor = [UIColor blackColor];
@@ -108,12 +108,12 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939565;
 
         [imageView sd_setImageWithURL:url];
         
-        [self sg_setupBlurForView:imageView];
+        [self sg_setupBlurForView:imageView withStyle:style];
     });
 }
 
-- (void)sg_setBackdropGIF:(NSURL *)url {
-    
+- (void)sg_setBackdropGIF:(NSURL *)url blurStyle:(UIBlurEffectStyle)style {
+
     dispatch_async(dispatch_get_main_queue(), ^{
         self.view.backgroundColor = [UIColor blackColor];
         
@@ -142,14 +142,14 @@ static const NSInteger kSGBackdropBlurViewTag   = 309939565;
             }
         });
         
-        [self sg_setupBlurForView:gifView];
+        [self sg_setupBlurForView:gifView withStyle:style];
     });
 }
 
-- (UIVisualEffectView *)sg_setupBlurForView:(UIView *)view {
+- (UIVisualEffectView *)sg_setupBlurForView:(UIView *)view withStyle:(UIBlurEffectStyle)style {
     UIVisualEffectView *blurView = (UIVisualEffectView *)[self.view viewWithTag:kSGBackdropBlurViewTag];
     if (!blurView) {
-        blurView = [UIVisualEffectView.alloc initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+        blurView = [UIVisualEffectView.alloc initWithEffect:[UIBlurEffect effectWithStyle:style]];
         blurView.frame = self.view.bounds;
         blurView.tag = kSGBackdropBlurViewTag;
         [self.view insertSubview:blurView aboveSubview:view];
