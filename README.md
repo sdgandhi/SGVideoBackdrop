@@ -22,7 +22,7 @@ pod "SGVideoBackdrop"
 
 ## Author
 
-Sidhant Gandhi, sidhantg@syntertainment.com
+Sidhant Gandhi, @sidhantgandhi
 
 ## License
 
